@@ -28,7 +28,13 @@ jobs: # Какие задачи делаем
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml # Запуск maven
+      run: mvn -B clean verify --file pom.xml # Запуск maven
+    - name: Upload JaCoCo coverage report # Загрузка отчёта
+      uses: actions/upload-artifact@v4
+      with:
+        name: jacoco-report
+        path: target/site/jacoco/
+        retention-days: 30
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
