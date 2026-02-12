@@ -21,10 +21,10 @@ jobs: # Какие задачи делаем
 
     steps: # Шаги
     - uses: actions/checkout@v4 # Выкачиваем репозиторий
-    - name: Set up JDK 17
+    - name: Set up JDK 25
       uses: actions/setup-java@v4 # Установка JDK
       with:
-        java-version: '17' # Версия Java
+        java-version: '25' # Версия Java
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
