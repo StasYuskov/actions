@@ -46,6 +46,13 @@
                         </goals>
                     </execution>
                     <execution>
+                        <id>check</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                    <execution>
                         <id>report</id>
                         <phase>verify</phase>
                         <goals>
@@ -53,9 +60,29 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <rules>
+                        <rule>
+                            <element>CLASS</element>
+                            <excludes>
+                                <exclude>*Test</exclude>
+                            </excludes>
+                            <limits>
+                                <limit>
+                                    <counter>LINE</counter>
+                                    <value>COVEREDRATIO</value>
+                                    <minimum>100%</minimum>
+                                </limit>
+                            </limits>
+                        </rule>
+                    </rules>
+                </configuration>
             </plugin>
         </plugins>
     </build>
+
+
+
 </project>
 
 
